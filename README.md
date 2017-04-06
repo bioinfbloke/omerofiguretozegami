@@ -25,3 +25,9 @@ mogrify -background white -format png *.PDF
 find . -name "*\-[12345679].png" -exec rm {} \;
 rename.pl 's/\-0\.png/\.png/' *.png 
 ```
+
+To increase resolution use:
+
+```
+convert -density 400 x.PDF x.PNG
+```
