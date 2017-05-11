@@ -21,13 +21,7 @@ To run enter:
 When requirements are completely worked out this should be made into a python module. These are the shell commnds to be run in the PDF directory.
 
 ```
-mogrify -background white -format png *.PDF
+mogrify -density 400 -background white -format png *.PDF
 find . -name "*\-[12345679].png" -exec rm {} \;
-rename.pl 's/\-0\.png/\.png/' *.png 
-```
-
-To increase resolution use:
-
-```
-convert -density 400 x.PDF x.PNG
+rename 's/\-0\.png/\.png/' *.png 
 ```
