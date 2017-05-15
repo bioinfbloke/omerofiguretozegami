@@ -7,7 +7,7 @@ Runs under Python 2.7+
 ## prerequisites
 Needs OMERO ICE libraries and python path should be set e.g.
 ```
-export PYTHONPATH = /opt/ice-python/lib/python2.7/site-packages:/opt/omero/OMERO.server-5.2.7-ice36-b40/lib/python/
+export PYTHONPATH=$PYTHONPATH:/opt/OMERO.py-5.2.6-ice35-b35/lib/python/
 ```
 Fill in the details for USER, PASS and HOSTNAME in the script
 currently requires ImageMagick to be installed.
@@ -23,5 +23,4 @@ When requirements are completely worked out this should be made into a python mo
 ```
 mogrify -density 400 -background white -format png *.PDF
 find . -name "*\-[12345679].png" -exec rm {} \;
-rename 's/\-0\.png/\.png/' *.png 
 ```
