@@ -1,18 +1,14 @@
-"""
-Many thanks to Will Moore for helping develop this script
-See http://lists.openmicroscopy.org.uk/pipermail/ome-users/2017-February/006362.html
-"""
-
+##!/usr/bin/env python
 from omero.rtypes import wrap
 from omero.gateway import BlitzGateway
 import omero
 import os.path
 import csv
 
-USERNAME = "USER"
-PASSWORD = "PASS"
+USERNAME = "xxx"
+PASSWORD = "xxx"
 
-conn = BlitzGateway(USERNAME, PASSWORD, host="HOSTNAME", port=4064)
+conn = BlitzGateway(USERNAME, PASSWORD, host="xxx", port=4064)
 conn.connect()
 
 # cross-group query to find file
@@ -52,7 +48,7 @@ for f in conn.getObjects("FileAnnotation", attributes={"ns": "omero.web.figure.j
     if len(meta_data) == 6:
     	# each one should have a banglore id and a tissue, currently BRAIN for testing
 	# to do: add more filters 
-    	if "CPTI" in meta_data[1] and "BRAIN" in meta_data[2]:
+    	if "VNC" in meta_data[2] or "MB" in meta_data[2] or "OL" in meta_data[2] or "CB" in meta_data[2]:
     		print "Checking if "+file_name+" is downloaded."
 	    	print "id="+ str(id)
   	  	print "0 = "+ str(meta_data)
@@ -108,3 +104,4 @@ for f in conn.getObjects("FileAnnotation", attributes={"ns": "omero.web.figure.j
   			finally:
        				f.close()
        				print "File ",file_name,"downloaded!"
+
