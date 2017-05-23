@@ -22,7 +22,7 @@ To run enter:
 When requirements are completely worked out this should be made into a python module. These are the shell commnds to be run in the PDF directory.
 
 ```
-mogrify -density 400 -background white -format png *.PDF
+mogrify -density 400 -background white -alpha remove -format png *.PDF
 find . -name "*\-[12345679].png" -exec rm {} \;
 rename 's/-0//' *.png
 ```
