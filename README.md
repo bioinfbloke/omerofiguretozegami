@@ -23,4 +23,5 @@ To run enter:
 
 `python figure2zegami.py`
 
+It will then download PDFs of the figures to the directory this is run in and convert them automatically to PNGs. It also creates a zegami.tsv text file that contains the metadata required to make a Zegami collection.
 
