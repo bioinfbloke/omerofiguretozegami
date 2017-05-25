@@ -5,11 +5,17 @@ Converts OMERO figure data to images and metadata suitable for creating a Zegami
 Runs under Python 2.7+
 
 ## prerequisites
-Needs OMERO ICE libraries and python path should be set e.g.
+Needs ImageMagick installed.
+
+You should set up environment variables containing the information of username, password and hostname for the OMERO database.
 ```
-export PYTHONPATH=$PYTHONPATH:/opt/OMERO.py-5.2.6-ice35-b35/lib/python/
+USER="xxxx"
+PASS="xxxx"
+HOST="xxxx"
+PYTHONPATH=$PYTHONPATH:/opt/ice-python/lib/python2.7/site-packages:/opt/omero/OMERO.server-5.2.7-ice36-b40/lib/python/
+export USER PASS HOST PYTHONPATH
 ```
-Fill in the details for USER, PASS and HOSTNAME in the script.
+You may find it convenient set this up in a script that you source but beware of storing usernames and passwords!
 
 Currently requires ImageMagick to be installed.
 
@@ -17,12 +23,4 @@ To run enter:
 
 `python figure2zegami.py`
 
-## Convert PDF to PNG
 
-When requirements are completely worked out this should be made into a python module. These are the shell commnds to be run in the PDF directory.
-
-```
-mogrify -density 400 -background white -alpha remove -format png *.PDF
-find . -name "*\-[12345679].png" -exec rm {} \;
-rename 's/-0//' *.png
-```
